@@ -33,7 +33,7 @@ export class Analyst extends React.Component {
       const btnText = copied ? 'Copied' : 'Copy Img';
       return (
         <div className='show-button'>
-          <img src={profile.analyst_img} style={{ width: '100%' }} />
+          <img alt={`${profile.ticker} - ${profile.name} analyst opinions`} src={profile.analyst_img} style={{ width: '100%' }} />
           <CopyToClipboard text={profile.analyst_img || ''}
             onCopy={() => this.setState({ copied: true })}
           >
@@ -74,9 +74,15 @@ export class Analyst extends React.Component {
     return (
       <div className='row no-gutters font-12'>
         <div className='col-md-12'>
+          <div className='darkred bold'>{profile.ticker} - {profile.name}</div>
           {pricetarget.priceTargetHigh ? <div><b>Target high:</b> <b className='green'>{pricetarget.priceTargetHigh}</b></div> : null}
           {pricetarget.priceTargetLow ? <div><b>Target low:</b> <b className='green'>{pricetarget.priceTargetLow}</b></div> : null}
-          {pricetarget.priceTargetAverage && (pricetarget.numberOfAnalysts) ? <div><b>Average:</b> <b className='green'>{pricetarget.priceTargetAverage}</b> based on <b className='green'>{pricetarget.numberOfAnalysts}</b> analysts as of <b>{pricetarget.updatedDate}</b></div> : null}
+          {pricetarget.priceTargetAverage && (pricetarget.numberOfAnalysts)
+            ? <div>
+              <b>Average:</b> <b className='green'>{pricetarget.priceTargetAverage}</b>
+                  &nbsp;based on <b className='green'>{pricetarget.numberOfAnalysts}</b> analysts as of <b>{pricetarget.updatedDate}</b>
+            </div>
+            : null}
           <br />
         </div>
         <div className='col-md-12'>

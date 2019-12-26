@@ -79,6 +79,7 @@ function (_React$Component) {
         return _react["default"].createElement("div", {
           className: "show-button"
         }, _react["default"].createElement("img", {
+          alt: "".concat(profile.ticker, " - ").concat(profile.name, " analyst opinions"),
           src: profile.analyst_img,
           style: {
             width: '100%'
@@ -109,13 +110,15 @@ function (_React$Component) {
         className: "row no-gutters font-12"
       }, _react["default"].createElement("div", {
         className: "col-md-12"
-      }, pricetarget.priceTargetHigh ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target high:"), " ", _react["default"].createElement("b", {
+      }, _react["default"].createElement("div", {
+        className: "darkred bold"
+      }, profile.ticker, " - ", profile.name), pricetarget.priceTargetHigh ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target high:"), " ", _react["default"].createElement("b", {
         className: "green"
       }, pricetarget.priceTargetHigh)) : null, pricetarget.priceTargetLow ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target low:"), " ", _react["default"].createElement("b", {
         className: "green"
       }, pricetarget.priceTargetLow)) : null, pricetarget.priceTargetAverage && pricetarget.numberOfAnalysts ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Average:"), " ", _react["default"].createElement("b", {
         className: "green"
-      }, pricetarget.priceTargetAverage), " based on ", _react["default"].createElement("b", {
+      }, pricetarget.priceTargetAverage), "\xA0based on ", _react["default"].createElement("b", {
         className: "green"
       }, pricetarget.numberOfAnalysts), " analysts as of ", _react["default"].createElement("b", null, pricetarget.updatedDate)) : null, _react["default"].createElement("br", null)), _react["default"].createElement("div", {
         className: "col-md-12"
