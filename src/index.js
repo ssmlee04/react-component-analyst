@@ -18,6 +18,11 @@ export class Analyst extends React.Component {
         <div className='font-12'>Not available at this time... </div>
       );
     }
+    if (profile.analyst_img) {
+      return (
+        <img src={profile.analyst_img} style={{ width: '100%' }} />
+      );
+    }
     const recommendation = _.first((profile.recommendation || {}).data) || {};
     const pricetarget = _.first((profile.pricetarget || {}).data) || {};
 

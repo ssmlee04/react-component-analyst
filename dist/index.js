@@ -61,6 +61,15 @@ function (_React$Component) {
         }, "Not available at this time... ");
       }
 
+      if (profile.analyst_img) {
+        return _react["default"].createElement("img", {
+          src: profile.analyst_img,
+          style: {
+            width: '100%'
+          }
+        });
+      }
+
       var recommendation = _lodash["default"].first((profile.recommendation || {}).data) || {};
       var pricetarget = _lodash["default"].first((profile.pricetarget || {}).data) || {};
       var data = {
