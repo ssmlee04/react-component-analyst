@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "react": "^16.12.0",
+    "react-chartjs-2": "^2.8.0"
+  },
+  "name": "react-component-analyst",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssmlee04/react-component-analyst.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssmlee04/react-component-analyst/issues"
+  },
+  "homepage": "https://github.com/ssmlee04/react-component-analyst#readme",
+  "description": ""
+}
