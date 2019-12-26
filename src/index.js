@@ -1,26 +1,45 @@
-/* eslint-disable max-len */
 import React from 'react';
 import _ from 'lodash';
 import { Doughnut } from 'react-chartjs-2';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import './../index.css';
 
 export class Analyst extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     const { profile } = this.props;
     if (!profile) return true;
+    if (nextState.copied) return true;
     if (profile.ticker !== nextProps.profile.ticker) return true;
     return false;
   }
 
   render() {
     const { profile } = this.props;
+    const { copied } = this.state;
     if (!profile) {
       return (
         <div className='font-12'>Not available at this time... </div>
       );
     }
     if (profile.analyst_img) {
+      const btnClass = copied ? 'show-url btn btn-sm btn-danger disabled font-10' : 'show-url btn btn-sm btn-warning font-10';
+      const btnText = copied ? 'Copied' : 'Copy Img';
       return (
-        <img src={profile.analyst_img} style={{ width: '100%' }} />
+        <div className='show-button'>
+          <img src={profile.analyst_img} style={{ width: '100%' }} />
+          <CopyToClipboard text={profile.analyst_img || ''}
+            onCopy={() => this.setState({ copied: true })}
+          >
+            <button className={btnClass} value={btnText}>{btnText}</button>
+          </CopyToClipboard>
+        </div>
       );
     }
     const recommendation = _.first((profile.recommendation || {}).data) || {};

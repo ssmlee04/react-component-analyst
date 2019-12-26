@@ -11,6 +11,10 @@ var _lodash = _interopRequireDefault(require("lodash"));
 
 var _reactChartjs = require("react-chartjs-2");
 
+var _reactCopyToClipboard = require("react-copy-to-clipboard");
+
+require("./../index.css");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -36,10 +40,14 @@ var Analyst =
 function (_React$Component) {
   _inherits(Analyst, _React$Component);
 
-  function Analyst() {
+  function Analyst(props) {
+    var _this;
+
     _classCallCheck(this, Analyst);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Analyst).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Analyst).call(this, props));
+    _this.state = {};
+    return _this;
   }
 
   _createClass(Analyst, [{
@@ -47,13 +55,17 @@ function (_React$Component) {
     value: function shouldComponentUpdate(nextProps, nextState) {
       var profile = this.props.profile;
       if (!profile) return true;
+      if (nextState.copied) return true;
       if (profile.ticker !== nextProps.profile.ticker) return true;
       return false;
     }
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var profile = this.props.profile;
+      var copied = this.state.copied;
 
       if (!profile) {
         return _react["default"].createElement("div", {
@@ -62,12 +74,26 @@ function (_React$Component) {
       }
 
       if (profile.analyst_img) {
-        return _react["default"].createElement("img", {
+        var btnClass = copied ? 'show-url btn btn-sm btn-danger disabled font-10' : 'show-url btn btn-sm btn-warning font-10';
+        var btnText = copied ? 'Copied' : 'Copy Img';
+        return _react["default"].createElement("div", {
+          className: "show-button"
+        }, _react["default"].createElement("img", {
           src: profile.analyst_img,
           style: {
             width: '100%'
           }
-        });
+        }), _react["default"].createElement(_reactCopyToClipboard.CopyToClipboard, {
+          text: profile.analyst_img || '',
+          onCopy: function onCopy() {
+            return _this2.setState({
+              copied: true
+            });
+          }
+        }, _react["default"].createElement("button", {
+          className: btnClass,
+          value: btnText
+        }, btnText)));
       }
 
       var recommendation = _lodash["default"].first((profile.recommendation || {}).data) || {};

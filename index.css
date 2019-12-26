@@ -1,0 +1,17 @@
+div.show-button {
+    position: relative;
+}
+div.show-button:hover img{
+    opacity: 0.8;
+}
+div.show-button:hover button {
+    display: block;
+}
+div.show-button button {
+    position: absolute;
+    display: none;
+}
+div.show-button button.show-url {
+    top: 2px;
+    right: 2px;
+}
