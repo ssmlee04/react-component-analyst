@@ -34,13 +34,13 @@ export class Analyst extends React.Component {
         <div style={{ fontSize: 14 }}>Not available at this time... </div>
       );
     }
-    if (profile.analyst_img) {
+    if (profile.analyst_img && profile.analyst_img.url) {
       const btnClass = copied ? 'react-components-show-url btn btn-sm btn-danger disabled font-10' : 'react-components-show-url btn btn-sm btn-warning font-10';
       const btnText = copied ? 'Copied' : 'Copy Img';
       return (
         <div className='react-components-show-button'>
-          <img alt={`${profile.ticker} - ${profile.name} analyst opinions`} src={profile.analyst_img} style={{ width: '100%' }} />
-          <CopyToClipboard text={profile.analyst_img || ''}
+          <img alt={`${profile.ticker} - ${profile.name} analyst opinions`} src={profile.analyst_img.url} style={{ width: '100%' }} />
+          <CopyToClipboard text={profile.analyst_img.url || ''}
             onCopy={() => this.setState({ copied: true })}
           >
             <button className={btnClass} value={btnText}>{btnText}</button>
