@@ -35,6 +35,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+var options = {
+  legend: {
+    position: 'left',
+    display: true,
+    fontSize: 14
+  }
+};
+
 var Analyst =
 /*#__PURE__*/
 function (_React$Component) {
@@ -69,15 +77,17 @@ function (_React$Component) {
 
       if (!profile) {
         return _react["default"].createElement("div", {
-          className: "font-12"
+          style: {
+            fontSize: 14
+          }
         }, "Not available at this time... ");
       }
 
       if (profile.analyst_img) {
-        var btnClass = copied ? 'show-url btn btn-sm btn-danger disabled font-10' : 'show-url btn btn-sm btn-warning font-10';
+        var btnClass = copied ? 'react-components-show-url btn btn-sm btn-danger disabled font-10' : 'react-components-show-url btn btn-sm btn-warning font-10';
         var btnText = copied ? 'Copied' : 'Copy Img';
         return _react["default"].createElement("div", {
-          className: "show-button"
+          className: "react-components-show-button"
         }, _react["default"].createElement("img", {
           alt: "".concat(profile.ticker, " - ").concat(profile.name, " analyst opinions"),
           src: profile.analyst_img,
@@ -106,32 +116,41 @@ function (_React$Component) {
           backgroundColor: ['darkgreen', 'green', 'gold', 'orange', 'red']
         }]
       };
-      return _react["default"].createElement("div", {
-        className: "row no-gutters font-12"
+      return _react["default"].createElement("div", null, _react["default"].createElement("div", {
+        style: {
+          width: '100%',
+          padding: 5,
+          fontSize: 14
+        }
       }, _react["default"].createElement("div", {
-        className: "col-md-12"
-      }, _react["default"].createElement("div", {
-        className: "darkred bold"
+        style: {
+          color: 'darkred',
+          fontWeight: 'bold'
+        }
       }, profile.ticker, " - ", profile.name), pricetarget.priceTargetHigh ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target high:"), " ", _react["default"].createElement("b", {
-        className: "green"
+        style: {
+          color: 'green'
+        }
       }, pricetarget.priceTargetHigh)) : null, pricetarget.priceTargetLow ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target low:"), " ", _react["default"].createElement("b", {
-        className: "green"
+        style: {
+          color: 'green'
+        }
       }, pricetarget.priceTargetLow)) : null, pricetarget.priceTargetAverage && pricetarget.numberOfAnalysts ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Average:"), " ", _react["default"].createElement("b", {
-        className: "green"
+        style: {
+          color: 'green'
+        }
       }, pricetarget.priceTargetAverage), "\xA0based on ", _react["default"].createElement("b", {
-        className: "green"
+        style: {
+          color: 'green'
+        }
       }, pricetarget.numberOfAnalysts), " analysts as of ", _react["default"].createElement("b", null, pricetarget.updatedDate)) : null, _react["default"].createElement("br", null)), _react["default"].createElement("div", {
-        className: "col-md-12"
+        style: {
+          width: '100%'
+        }
       }, recommendation ? _react["default"].createElement("div", null, _react["default"].createElement(_reactChartjs.Doughnut, {
         height: 120,
         data: data,
-        options: {
-          legend: {
-            position: 'left',
-            display: true,
-            fontSize: 8
-          }
-        }
+        options: options
       })) : null));
     }
   }]);
