@@ -81,8 +81,8 @@ export class Analyst extends React.Component {
       <div>
         <div style={{ width: '100%', padding: 5, fontSize: 14 }}>
           <div style={{ color: 'darkred', fontWeight: 'bold' }}>{profile.ticker} - {profile.name}</div>
-          {pricetarget.priceTargetHigh ? <div><b>Target high:</b> <b style={{ color: 'green' }}>{pricetarget.priceTargetHigh}</b></div> : null}
-          {pricetarget.priceTargetLow ? <div><b>Target low:</b> <b style={{ color: 'green' }}>{pricetarget.priceTargetLow}</b></div> : null}
+          {pricetarget.priceTargetHigh ? <div><b>Target high:</b> <b style={{ color: 'green' }}>{pricetarget.priceTargetHigh}</b>&nbsp;{pricetarget.currency}</div> : null}
+          {pricetarget.priceTargetLow ? <div><b>Target low:</b> <b style={{ color: 'green' }}>{pricetarget.priceTargetLow}</b>&nbsp;{pricetarget.currency}</div> : null}
           {pricetarget.priceTargetAverage && (pricetarget.numberOfAnalysts)
             ? <div>
               <b>Average:</b> <b style={{ color: 'green' }}>{pricetarget.priceTargetAverage}</b>

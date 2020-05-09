@@ -131,11 +131,11 @@ function (_React$Component) {
         style: {
           color: 'green'
         }
-      }, pricetarget.priceTargetHigh)) : null, pricetarget.priceTargetLow ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target low:"), " ", _react["default"].createElement("b", {
+      }, pricetarget.priceTargetHigh), "\xA0", pricetarget.currency) : null, pricetarget.priceTargetLow ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Target low:"), " ", _react["default"].createElement("b", {
         style: {
           color: 'green'
         }
-      }, pricetarget.priceTargetLow)) : null, pricetarget.priceTargetAverage && pricetarget.numberOfAnalysts ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Average:"), " ", _react["default"].createElement("b", {
+      }, pricetarget.priceTargetLow), "\xA0", pricetarget.currency) : null, pricetarget.priceTargetAverage && pricetarget.numberOfAnalysts ? _react["default"].createElement("div", null, _react["default"].createElement("b", null, "Average:"), " ", _react["default"].createElement("b", {
         style: {
           color: 'green'
         }
