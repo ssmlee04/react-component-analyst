@@ -39,7 +39,7 @@ var options = {
   legend: {
     position: 'left',
     display: true,
-    fontSize: 14
+    fontSize: 8
   }
 };
 
@@ -81,13 +81,13 @@ function (_React$Component) {
       if (!profile) {
         return _react["default"].createElement("div", {
           style: {
-            fontSize: 14
+            fontSize: 8
           }
         }, "Not available at this time... ");
       }
 
       if (profile[imgProp] && profile[imgProp].url) {
-        var btnClass = copied ? 'react-components-show-url btn btn-sm btn-danger disabled font-10' : 'react-components-show-url btn btn-sm btn-warning font-10';
+        var btnClass = copied ? 'react-components-show-url btn btn-sm btn-danger disabled font-8' : 'react-components-show-url btn btn-sm btn-warning font-8';
         var btnText = copied ? 'Copied' : 'Copy Img';
         return _react["default"].createElement("div", {
           className: "react-components-show-button"
@@ -123,7 +123,7 @@ function (_React$Component) {
         style: {
           width: '100%',
           padding: 5,
-          fontSize: 14
+          fontSize: 8
         }
       }, _react["default"].createElement("div", {
         style: {
@@ -161,7 +161,7 @@ function (_React$Component) {
         options: options
       })) : null), _react["default"].createElement("div", {
         style: {
-          fontSize: 12,
+          fontSize: 8,
           color: 'gray',
           padding: 5
         }
