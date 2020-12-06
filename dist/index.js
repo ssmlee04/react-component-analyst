@@ -39,7 +39,9 @@ var options = {
   legend: {
     position: 'left',
     display: true,
-    fontSize: 8
+    labels: {
+      fontSize: 8
+    }
   }
 };
 

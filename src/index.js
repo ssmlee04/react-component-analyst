@@ -7,7 +7,9 @@ const options = {
   legend: {
     position: 'left',
     display: true,
-    fontSize: 8
+    labels: {
+      fontSize: 8
+    }
   }
 };
 export class Analyst extends React.Component {
